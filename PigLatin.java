@@ -5,9 +5,9 @@ public class PigLatin{
   public static String pigLatinSimple(String s){
     String char0 = s.substring(0,1);
     if (vowels.contains(char0))
-      return s + "hay";
+      return (s + "hay").toLowerCase();
     else
-      return s.substring(1, s.length()) + char0 + "ay";
+      return (s.substring(1, s.length()) + char0 + "ay").toLowerCase();
   }
 
   public static String pigLatin(String s){
@@ -19,11 +19,11 @@ public class PigLatin{
 
     for (String element : diagraphs){
       if (s.contains(element))
-        return s.substring(2, s.length()) + s.substring(0,2) + "ay";
+        return (s.substring(2, s.length()) + s.substring(0,2) + "ay").toLowerCase();
       else if (vowels.contains(s.substring(0,1)))
-        return s + "hay";
+        return (s + "hay").toLowerCase();
     }
-    return s.substring(1, s.length()) + char0 + "ay";
+    return (s.substring(1, s.length()) + char0 + "ay").toLowerCase();
   }
 /*
   public static String pigLatinBest(String s){
@@ -33,7 +33,7 @@ public class PigLatin{
 
   public static void main(String[] args){
     System.out.println("PigLatinSimple tests:");
-    System.out.println(pigLatinSimple("mock")); //ockmay
+    System.out.println(pigLatinSimple("Mock")); //ockmay
     System.out.println(pigLatinSimple("pie")); //iepay
     System.out.println(pigLatinSimple("david")); //avidday
     System.out.println(pigLatinSimple("aaron")); //aaronhay
@@ -41,7 +41,7 @@ public class PigLatin{
     System.out.println();
 
     System.out.println("PigLatin tests:");
-    System.out.println(pigLatin("the")); //ethay
+    System.out.println(pigLatin("tHe")); //ethay
     System.out.println(pigLatin("check")); //eckchay
     System.out.println(pigLatin("skee")); //eeskay
     System.out.println(pigLatin("emu")); //emuhay
