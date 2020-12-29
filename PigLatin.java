@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class PigLatin{
 
   private static String vowels = "aeiou";
@@ -18,7 +20,8 @@ public class PigLatin{
                           "gh", "gl", "gr", "ng", "ph", "pl", "pr", "qu", "sc",
                           "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th",
                           "tr", "tw", "wh", "wr"};
-
+    if (s.length() <= 2)
+      return s + "hay";
     for (String element : diagraphs){
       if (element.contains(s.substring(0,2)))
         return s.substring(2, s.length()) + s.substring(0,2) + "ay";
@@ -40,6 +43,7 @@ public class PigLatin{
   }
 
   public static void main(String[] args){
+/*
     System.out.println("PigLatinSimple tests:");
     System.out.println(pigLatinSimple("Mock")); //ockmay
     System.out.println(pigLatinSimple("pie")); //iepay
@@ -60,12 +64,27 @@ public class PigLatin{
     System.out.println("pigLatinBest tests:");
     System.out.println(pigLatinBest("*emu")); //*emu
     System.out.println(pigLatinBest("4chan")); //4chan
-    System.out.println(pigLatinBest("fish!")); //ishfay! \\
-    System.out.println(pigLatinBest("fish")); //ishfay \\
+    System.out.println(pigLatinBest("fish!")); //ishfay!
+    System.out.println(pigLatinBest("fish")); //ishfay
     System.out.println(pigLatinBest("the.")); //ethay.
     System.out.println(pigLatinBest("cat!")); //atcay!
     System.out.println(pigLatinBest("amazing?")); //amazinghay?
     System.out.println(pigLatinBest("apple%")); //applehay%
+*/
+    Scanner n = new Scanner(System.in);
+    while (n.hasNextLine()){
+      String line = n.nextLine();
+      Scanner linescan = new Scanner(line);
+
+      while (linescan.hasNext()){
+        String s = linescan.next();
+        System.out.print(pigLatinBest(s));
+        if (linescan.hasNext())
+          System.out.print(" ");
+      }
+      if (n.hasNextLine())
+        System.out.println();
+    }
   }
 }
 
