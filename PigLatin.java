@@ -21,7 +21,7 @@ public class PigLatin{
                           "sh", "sk", "sl", "sm", "sn", "sp", "st", "sw", "th",
                           "tr", "tw", "wh", "wr"};
     if (s.length() <= 2)
-      return s + "hay";
+      return pigLatinSimple(s);
     for (String element : diagraphs){
       if (element.contains(s.substring(0,2)))
         return s.substring(2, s.length()) + s.substring(0,2) + "ay";
@@ -49,6 +49,7 @@ public class PigLatin{
     System.out.println(pigLatinSimple("pie")); //iepay
     System.out.println(pigLatinSimple("david")); //avidday
     System.out.println(pigLatinSimple("aaron")); //aaronhay
+    System.out.println(pigLatinSimple("he")); //ehay
 
     System.out.println();
 
@@ -58,6 +59,7 @@ public class PigLatin{
     System.out.println(pigLatin("skee")); //eeskay
     System.out.println(pigLatin("emu")); //emuhay
     System.out.println(pigLatin("grade")); //adegray
+    System.out.println(pigLatin("he")); //ehay
 
     System.out.println();
 
